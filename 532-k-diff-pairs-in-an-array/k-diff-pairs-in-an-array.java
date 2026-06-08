@@ -1,17 +1,24 @@
 class Solution {
     public int findPairs(int[] arr, int k) {
-         HashSet<String>list=new HashSet<>();
-        int cnt=0;
-        int temp=0;
-       for(int i=0;i<arr.length;i++){
-        for(int j=i+1;j<arr.length;j++){
-            if(Math.abs(arr[i]-arr[j])==k){
-            int a=Math.max(arr[i],arr[j]);
-            int b=Math.min(arr[i],arr[j]);
-            list.add(a+"#"+b);
+         HashMap<Integer,Integer>map=new HashMap<>();
+         int cnt=0;
+         for(int i=0;i<arr.length;i++){
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+         }
+          if(k==0){
+              for(int n:map.keySet()){
+                if(map.get(n)>1){
+                    cnt++;
+                }
+              }  
             }
-       }
-       }
-        return list.size();
+            else{
+                for(int n:map.keySet()) {
+                if(map.containsKey(n+k)){
+                     cnt++;
+                 }
+               }
+            }
+            return cnt;
     }
 }
