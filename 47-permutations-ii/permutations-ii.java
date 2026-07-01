@@ -1,13 +1,13 @@
 class Solution {
       public static void f(int nums[],int idx,List<List<Integer>>res,ArrayList<Integer>temp,boolean arr[]){
        if(temp.size()==nums.length){
-        if(!res.contains(temp)){
            res.add(new ArrayList<>(temp));
-        }
+        
        }
        
        for(int i=0;i<nums.length;i++){
           if(arr[i]) continue;
+          if(i>0&&nums[i]==nums[i-1]&&!arr[i-1])continue;
             temp.add(nums[i]);
             arr[i]=true;
           
