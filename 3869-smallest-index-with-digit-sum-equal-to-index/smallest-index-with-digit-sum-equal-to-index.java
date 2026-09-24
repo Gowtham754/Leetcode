@@ -9,14 +9,9 @@ class Solution {
                 dig/=10;
             }
             if(sum==i){
-                res=Math.min(i,res);
+                return i;
             }
         }
-        if(res==Integer.MAX_VALUE){
-            return -1;
-        }
-        else{
-            return res;
-        }
+        return -1;
     }
 }
